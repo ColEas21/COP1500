@@ -2,361 +2,220 @@
 # This is a information query on the capitals of Europe as of January 21 2021
 # The  countries are based off of nations online
 #
+__author__ = "Collin Easley"
+
+# from typing import List, Any, Callable
+# from typing import List
 
 print("Welcome to my integration project!")
 print("The countries of Europe:")
 
 euroList = ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan",
-            "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia",
-            "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France",
-            "Georgia", "Germany", "Greece", "Hungary", "Iceland", "Ireland",
+            "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria",
+            "Croatia",
+            "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland",
+            "France",
+            "Georgia", "Germany", "Greece", "Hungary", "Iceland",
+            "Ireland",
             "Italy", "Kazakhstan", "Kosovo", "Latvia", "Liechtenstein",
-            "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro",
-            "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal",
-            "Romania", "Russia", "San Marino", "Serbia", "Slovakia", "Slovenia",
-            "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom",
+            "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco",
+            "Montenegro",
+            "Netherlands", "North Macedonia", "Norway", "Poland",
+            "Portugal",
+            "Romania", "Russia", "San Marino", "Serbia", "Slovakia",
+            "Slovenia",
+            "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine",
+            "United Kingdom",
             "Vatican City"]
+eur_cites = ["Tirana", "Andorra La Vella", "Yerevan", "Vienna", "Baku",
+             "Minsk",
+             "Brussels", "Sarajevo", "Sofia",
+             "Zagreb",
+             "Nicosia", "Prague", "Copenhagen", "Talinn",
+             "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest",
+             "Reykjavik", "Dublin", "Rome",
+             "Nur-Sultan",
+             "Pristina", "Riga", "Vaduz", "Vilnus", "Luxembourg City",
+             "Valletta", "Chișinău", "Monaco",
+             "Podgorica",
+             "Amsterdam", "Skopje", "Oslo", "Warsaw", "Lisbon", "Bucharest",
+             "Moscow", "San Marino", "Belgrade",
+             "Bratislava",
+             "Ljubljana", "Madrid", "Stockholm", "Bern", "Ankara", "Kiev",
+             "London", "Vatican City"]
+weur_list = ["Belgium", "France", "Luxembourg", "Netherlands",
+             "United Kingdom", "Ireland"]
+e_euro = ["Belarus", "Bulgaria", "Moldova", "Russia", "Ukraine"]
+seur_list = ["Malta", "San Marino", "Monaco", "Italy", "Spain", "Portugal",
+             "Vatican City", "Andorra"]
+eurasia_list = ["Azerbaijan", "Kazakhstan", "Georgia", "Armenia", "Turkey"]
+southe_eur = ["Albania", "Bosnia and Herzegovina", "Croatia", "Cyprus",
+              "Greece", "Kosovo", "Montenegro", "North Macedonia",
+              "Romania", "Serbia", "Slovenia"]
+c_euro = ["Austria", "Czech Republic", "Germany", "Hungary", "Liechtenstein",
+          "Poland", "Slovakia", "Switzerland"]
+n_euro = ["Denmark", "Estonia", "Finland", "Iceland", "Latvia", "Lithuania",
+          "Norway", "Sweden"]
+
+pop_tuple = (
+    2000000 + 877639, 77387, 2968536, 9070940, 10226892, 9452040, 11642916,
+    3260133, 6908384, 4083735,
+    1196710, 10731698, 5807597, 1330573, 5549442, 65381070 + (5 % 4), 3985670,
+    84228453, 10386201, 9643738, 343244, 4999400 + (9 ** 2),
+    60411334,
+    18976100, 1798506, 1868269, 38216, 2686234, 636953, 514560 + (8 - 4),
+    4027684, 39477, 628308, 17164965, 2084363, 5453259,
+    37826960 + (5 // 4),
+    10172397, 19112338, 146121379, 33995, 8717567, 5464219, 2080125, 46815933,
+    10153974, 8711003, 85427222, 43542732,
+    68235124, 795)
+gdp_list = [14034 * 1000000000, 3238000000, 12813000000, 432894000000,
+            41666000000, 57708000000, 503416000000, 18893000000,
+            67917000000, 56768000000, 23246000000, 241975000000, 339626000000,
+            30468000000, 267856000000, 2551451000000,
+            16316000000, 3780553000000, 194376000000, 149939000000,
+            20805000000, 399064000000, 7484000000,
+            1848222000000, 569813000000,
+            33015000000, 6215000000, 55064000000, 68613000000, 14290000000,
+            11241000000, 7188000000, 4943000000,
+            886339000000,
+            412510000000, 366386000000, 580894000000, 221716000000,
+            248624000000, 1464078000000, 1410000000,
+            51999000000,
+            101892000000, 51802000000, 1247464000000, 529054000000,
+            707868000000, 649436000000, 142250000000,
+            2638296000000, 0]
+eu_list = ["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus",
+           "Czech Republic", "Denmark", "Estonia", "Finland",
+           "France",
+           "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia",
+           "Lithuania", "Luxembourg", "Malta",
+           "Netherlands", "Poland", "Portugal",
+           "Romania", "Slovakia", "Slovenia", "Spain", "Sweden"]
 # Prints all the countries on the list in a more aesthetic fashion
+
 for eur in range(len(euroList)):
-    print(euroList[eur], sep=" ")
-question = str(input("\nEnter country from list: "))
-
-# reigons of europe
-se_euro = "Southeastern Europe"
-s_euro = "Southern Europe"
-e_euro = "Eastern Europe"
-c_euro = "Central Europe"
-w_euro = "Western Europe"
-n_euro = "Northern Europe"
-asia_euro = "Eurasia"
-
-# base populations
-
-# Vatican City
-base_7hun = int(700)
-# Liechtenstein, San Marino, Monaco
-base_30tho = int(30000)
-# andorra
-base_70tho = int(70000)
-# Iceland
-base_300tho = int(300000)
-# malta use ** in if statement
-base_500tho = int(500000)
-# Montenegro, Luxembourg
-base_600tho = int(600000)
-# Cyprus, Estonia, Kosovo, Lativa
-base_1mill = int(1000000)
-# Slovenia, Macedonia, Moldova, Lithuania, Albania, Armenia
-base_2mill = int(2000000)
-# Bosnia and Herzegovina, Georgia
-base_3mill = int(3000000)
-# Croatia, Ireland
-base_4mill = int(4000000)
-# Norway, Slovakia, Finland, Denmark
-base_5mill = int(5000000)
-# Serbia
-base_6mill = int(6000000)
-# Bulgaria
-base_7mill = int(7000000)
-# Switzerland, Austria
-base_8mill = int(8000000)
-# Belarus, Hungary
-base_9mill = int(9000000)
-# Azerbaijan, Portugal, Sweden, Czech Republic, Greece
-base_10mill = int(10000000)
-# Belgium
-base_11mill = int(11000000)
-# Netherlands
-base_17mill = int(17000000)
-# Kazahstan
-base_18mill = int(18000000)
-# Romainia
-base_19mill = int(19000000)
-# Poland
-base_30mill = int(30000000)
-# Ukraine, Spain
-base_40mill = int(40000000)
-# Italy, United Kingdom, France
-base_60mill = int(60000000)
-# Germany, Turkey
-base_80mill = int(80000000)
-# Russia
-base_100mill = int(100000000)
+    print(euroList[eur])
 
 
-# Creates a function to put in the countries that are in the EU per 2021
-def eur_un():
-    print("In the European union")
+# prints the captial of the country the user entered
+def printcap(eur_question):
+    """
+
+    :param eur_question:
+    """
+    n = euroList.index(eur_question)
+    if eur_question in euroList:
+        print("Capital: ", eur_cites[n])
+    if eur_question == "Vatican City":
+        print("City state")
 
 
-# Function to calculate the GDP per capita
-def eur_pcgdp(gdp, population):
-    percap_gdp = gdp / population
-    print("GDP per capita: ", format(percap_gdp, "0.2f"), sep="")
+# if the user enters a country with a popluation under 100 million it will
+# let them know
+def exceptions(eur_question):
+    """
+
+    :param eur_question: 
+    """
+    if eur_question != "Russia":
+        print("Population under 100 million")
 
 
-if question == euroList[0]:
-    print("Capital: Tirana", "\nRegion: ", se_euro)
-    print("Population: ", base_2mill + 878579)
-# Creates the parameters for the function
-    def al_pcgdp():
-        gdp = int(13640000000)
-        population = int(2878579)
-        eur_pcgdp(gdp, population)
-    al_pcgdp()
-# Abbreviation
-elif question == "AL":
-    print("Capital: Tirana", "\nRegion: ", se_euro)
-    print("Population: ", base_2mill + 878579)
+# prints the region of the inputted country
+
+def printreg(eur_question):
+    """
+
+    :param eur_question:
+    """
+    if eur_question in e_euro:
+        print("Region: Eastern Europe")
+    if eur_question in weur_list:
+        print("Region: Western Europe")
+    if eur_question in seur_list:
+        print("Region: Southern Europe")
+    if eur_question in eurasia_list:
+        print("Region: Eurasia")
+    if eur_question in southe_eur:
+        print("Region: Southeastern Europe")
+    if eur_question in c_euro:
+        print("Region: Central Europe")
+    if eur_question in n_euro:
+        print("Region: Northern Europe")
+    elif eur_question not in euroList:
+        print("Not in Europe")
 
 
-    def al_pcgdp():
-        gdp = int(13640000000)
-        population = int(2878579)
-        eur_pcgdp(gdp, population)
+# prints popluation of country the user entered
+def printpop(eur_question):
+    """
+
+    :type eur_question: object
+    :param eur_question:
+    """
+    w = euroList.index(eur_question)
+    print("Population: ", pop_tuple[w])
 
 
-    al_pcgdp()
-# * because its a meme ;)
-if question == "Andorra":
-    print("Capital: Andorra la Vella", "\nRegion: ", s_euro)
-    print("Population: ", base_70tho + 7543)
-    print("Doesnt exist" * 10)
+# Takes the population tuple turns it into a list then puts the two lists
+# together and divides them to create a new list which coorelates with
+# euroList
+def printgdp_pc(eur_question):
+    """
+
+    :param eur_question:
+    """
+    pop_list = list(pop_tuple)
+    percap_gdp = []
+    for gdp, pop in zip(gdp_list, pop_list):
+        percap_gdp.append(gdp / pop)
+    z = euroList.index(eur_question)
+    print("Per captia GDP: ", format(percap_gdp[z], "0.2f"), sep="")
 
 
-    def ad_pcgdp():
-        gdp = 3154000000
-        population = 77543
-        eur_pcgdp(gdp, population)
+# lets the user know if the country is in the European Union
+
+def in_eu(eur_question):
+    """
+
+    :type eur_question: eur_question
+    :param eur_question:
+    """
+    while eur_question in eu_list:
+        print("In the European union: ", 4 > 3 or 5 > 3)
+        break
+    if eur_question not in eu_list:
+        print("In the European Union: ", 1 > 4 and 1 < 2)
 
 
-    ad_pcgdp()
-elif question == "AD":
-    print("Capital: Andorra la Vella", "\nRegion: ", s_euro)
-    print("Population: ", base_70tho + 7543)
-    print("Doesnt exist" * 10)
+def eur_info():
+    """
+
+    :return:
+    """
+    eur_info2 = lambda eur_question: [
+        printcap(eur_question),
+        exceptions(eur_question),
+        printreg(eur_question),
+        printpop(eur_question),
+        printgdp_pc(eur_question),
+        in_eu(eur_question)]
+    eur_question = eur_info2(input("Enter country from list: "))
 
 
-    def ad_pcgdp():
-        gdp = int(3154000000)
-        population = int(77543)
-        eur_pcgdp(gdp, population)
+# This trys the input for the main question compares it to each function and
+# compares the
+def eur_quest():
+    """
+The input for the program
+    """
+    while True:
+        try:
+            eur_info()
+            break
+        except ValueError:
+            print("Enter country on list")
 
 
-    ad_pcgdp()
-if question == "Armenia":
-    print("Capital: Yerevan", "\nRegion: ", asia_euro)
-    print("Population: ", 1478450 * 2)
-
-
-    def arm_pcgdp():
-        gdp = 13670000000
-        population = 1478450 * 2
-        eur_pcgdp(gdp, population)
-
-
-    arm_pcgdp()
-
-if question == "Austria":
-    print("Capital: Vienna", "\nRegion: ", c_euro)
-    print("Population: ", base_8mill + int(1870224 / 2))
-    eur_un()
-
-
-    def aus_pcgdp():
-        gdp = 445100000000
-        population = base_8mill + int(1870224 / 2)
-        eur_pcgdp(gdp, population)
-
-
-    aus_pcgdp()
-if question == "Azerbaijan":
-    print("Capital: Baku", "\nRegion: ", asia_euro)
-    print("Population: ", base_10mill + 127874)
-if question == "Belarus":
-    print("Capital: Minsk", "\nRegion: ", e_euro)
-    print("Population: ", base_9mill + 440840)
-if question == "Belgium":
-    print("Capital: Brussels", "\nRegion: ", w_euro)
-    print("Population: ", base_11mill + 492641)
-    eur_un()
-if question == "Bosnia and Herzegovina":
-    print("Capital: Sarajevo", "\nRegion: ", se_euro)
-    print("Population: ", base_3mill + 300000 + int(5 ** 2) * 40)
-elif question == "Bosnia":
-    print("Capital: Sarajevo", "\nRegion: ", se_euro)
-    print("Population: ", base_3mill + 300000 + int(5 ** 2) * 40)
-if question == "Bulgaria":
-    print("Capital: Sofia ", "\nRegion: ", se_euro)
-    print("Population: ", base_6mill + 951482, sep="")
-    eur_un()
-if question == "Croatia":
-    print("Capital: Zagreb ", "\nRegion: ", se_euro)
-    print("Population: ", base_4mill + 284889)
-    eur_un()
-if question == "Cyprus":
-    print("Capital: Nicosia", "\nRegion: ", se_euro)
-    print("Population: ", base_1mill + 189265)
-    eur_un()
-if question == "Czech Republic":
-    print("Capital: Prague", "\nRegion: ", c_euro)
-    print("Population: ", base_10mill + 707839)
-    eur_un()
-if question == "Denmark":
-    print("Capital: Copenhagen", "\nRegion: ", n_euro)
-    print("Population: ", base_5mill + 707839)
-    eur_un()
-if question == "Estonia":
-    print("Capital: Talinn", "\nRegion: ", n_euro)
-    print("Population: ", base_1mill + 294455)
-    eur_un()
-if question == "Finland":
-    print("Capital: Helsinki", "\nRegion: ", n_euro)
-    print("Population: ", base_5mill + 536146)
-if question == "France":
-    print("Capital: Paris", "\nRegion: ", w_euro)
-    print("Population: ", base_60mill + int(7 * 1000000) + 76000)
-    eur_un()
-if question == "Georgia":
-    print("Capital: Tbilisi", "\nRegion: ", asia_euro)
-    print("Population: ", base_4mill + 12100 + int(245 % 15 - 1))
-if question == "Germany":
-    print("Capital: Berlin", "\nRegion: ", c_euro)
-    print("Population: ", base_80mill + base_3mill + 166711)
-    eur_un()
-if question == "Greece":
-    print("Capital: Athens", "\nRegion: ", s_euro)
-    print("Population: ", base_10mill + 816286, end="")
-    eur_un()
-if question == "Hungary":
-    print("Capital: Budapest", "\nRegion", c_euro)
-    print("Population: ", base_10mill + 769520 + int(12 // 2))
-    eur_un()
-if question == "Iceland":
-    print("Capital: Reykjavík", "\nRegion: ", n_euro)
-    print("Population: ", base_300tho + 64134)
-if question == "Ireland":
-    print("Capital: Dublin", "\nRegion: ", w_euro)
-    print("Population: ", base_6mill + 572728)
-    eur_un()
-if question == "Italy":
-    print("Capital: Rome", "\nRegion: ", s_euro)
-    print("Population: ", base_60mill + 317116)
-    eur_un()
-if question == "Kazakhstan":
-    print("Capital: Nur-Sultan", "\nRegion: ", asia_euro)
-    print("Population: ", base_18mill + 724000 + int(100 * 2))
-if question == "Kosovo":
-    print("Capital: Pristina", "\nRegion: ", se_euro)
-    print("Population: ", base_1mill + 873160)
-if question == "Latvia":
-    print("Capital: Riga", "\nRegion: ", n_euro)
-    print("Population: ", base_1mill + 907675)
-    eur_un()
-if question == "Liechtenstein":
-    print("Capital: Vaduz", "\nRegion: ", c_euro)
-    print("Population: ", base_30tho + 8896)
-if question == "Lithuania":
-    print("Capital: Vilnus", "\nRegion: ", n_euro)
-    print("Population: ", base_2mill + 793694)
-    eur_un()
-if question == "Luxembourg":
-    print("Capital: Luxembourg City", "\nRegion: ", w_euro)
-    print("Population: ", base_600tho + 26108)
-    eur_un()
-if question == "Malta":
-    print("Capital: Valletta", "\nRegion: ", s_euro)
-    print("Population: ", base_500tho + 14564)
-
-if question == "Moldova":
-    print("Capital: Chișinău", "\nRegion: ", e_euro)
-    print("Population (excludes Transnistria): ", base_2mill + 640438)
-if question == "Monaco":
-    print("Capital: Monaco", "\nRegion: ", s_euro)
-    print("Population: ", base_30tho + 8300)
-if question == "Montenegro":
-    print("Capital: Podgorica", "\nRegion: ", se_euro)
-    print("Population: ", base_600tho + 21873)
-if question == "Netherlands":
-    print("Capital: Amsterdam", "\nRegion: ", w_euro)
-    print("Population: ", base_17mill + 469635)
-    eur_un()
-if question == "North Macedonia":
-    print("Capital:Skopje", "\nRegion: ", se_euro)
-    print("Population: ", base_2mill + 84262)
-if question == "Norway":
-    print("Capital: Oslo", "\nRegion: ", n_euro)
-    print("Population: ", base_5mill + 323933)
-if question == "Poland":
-    print("Capital: Warsaw", "\nRegion: ", c_euro)
-    print("Population: ", base_30mill + 8433600)
-    eur_un()
-if question == "Portugal":
-    print("Capital: Lisbon", "\nRegion: ", s_euro)
-    print("Population: ", base_10mill + 276617)
-    eur_un()
-if question == "Romainia":
-    print("Capital: Bucharest", "\nRegion: ", e_euro)
-    print("Population: ", base_19mill + 140199)
-    eur_un()
-if question == "Russia":
-    print("Capital: Moscow", "\nRegion: ", e_euro)
-    print("Population: ", base_100mill + 46093678)
-if question == "San Marino":
-    print("Capital: San Marino", "\nRegion: ", s_euro)
-    print("Population: ", base_30tho + 3407)
-
-if question == "Serbia":
-    print("Capital: Belgrade", "\nRegion: ", se_euro)
-    print("Population: ", base_6mill + 723625)
-if question == "Slovakia":
-    print("Capital: Bratislava", "\nRegion: ", c_euro)
-    print("Population: ", base_5mill + 445087)
-    eur_un()
-if question == "Slovenia":
-    print("Capital: Ljubljana", "\nRegion: ", s_euro)
-    print("Population: ", base_2mill + 79962)
-    eur_un()
-if question == "Spain":
-    print("Capital: Madrid", "\nRegion: ", s_euro)
-    print("Population: ", base_40mill + 6807131)
-    eur_un()
-if question == "Sweden":
-    print("Capital: Stockholm", "\nRegion: ", n_euro)
-    print("Population: ", base_10mill + 140199)
-    eur_un()
-if question == "Switzerland":
-    print("Capital: Bern", "\nRegion: ", w_euro)
-    print("Population: ", base_8mill + 697628)
-if question == "Turkey":
-    print("Capital: Ankara", "\nRegion: ", asia_euro)
-    print("Population: ", base_80mill + 5202924)
-if question == "Ukraine":
-    print("Capital: Kiev", "\nRegion: ", e_euro)
-    print("Population: ", base_40mill + 3592603)
-if question == "United Kingdom":
-    print("Capital: London", "\nRegion: ", w_euro)
-    print("Population: ", base_60mill + 6795807)
-elif question == "UK":
-    print("Capital: London", "\nRegion: ", w_euro)
-    print("Population: ", base_60mill + 6795807)
-# explaining that it is a city and a state
-if question == "Vatican City":
-    print("Capital: Vatican City" + "(city-state)", "\nRegion: ", s_euro)
-    print("Population: ", base_7hun + 99)
-# Because these arent technically countries we let the user know that they are part of the UK
-if question == "Wales" and "Scotland" and "Northern Ireland":
-    print("Part of the United Kingdom")
-# Prints a warning statement if the input isnt in the list
-if question not in euroList:
-    print("Enter a valid country")
-#Tells the user if the country they entered is in the the top 5 largest countrys in europe by population
-if question == "Russia" or "Germany" or "United Kingdom" or "UK" or "France" or "Italy":
-    print("In the top 5 biggest european countries ? ", 5 != 5)
-
-else:
-    print("Enter a country on the list")
-#Tells user if the country they entered is in Europe
-while question in euroList:
-    print("Is a European country: ", 2 >= 1)
-    break
+eur_quest()
